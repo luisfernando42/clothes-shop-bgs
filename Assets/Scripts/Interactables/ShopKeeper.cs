@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ShopKeeper : Interactable
 {
+    public ShopUI ShopUI;
     public override void Interact()
     {
-
+        ShopUI.OpenShop();
     }
 }

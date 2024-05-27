@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class ShopUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public List<ShopItem> shopItems;
+    public GameObject itemPrefab;
+    public GameObject shopItemParent;
+
+    private void InstantiateAllItems()
     {
-        
+        for (int i = 0; i < shopItems.Count; i++)
+        {
+            GameObject shopItem = Instantiate(itemPrefab, shopItemParent.transform.position, Quaternion.identity, shopItemParent.transform);
+            shopItem.GetComponent<ItemInitializer>().Initialize(itemIcon: shopItems[i].itemIcon, itemValue: shopItems[i].itemValue, playerWearing: shopItems[i].playerWearing);    
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        InstantiateAllItems();
+    }
+
+    public void OpenShop()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void CloseShop() 
+    { 
+        gameObject.SetActive(false);
     }
 }

@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ShopItem", menuName = "Shop Item/Item")]
-public class ShopItem : MonoBehaviour
+[CreateAssetMenu(fileName = "ShopItem", menuName = "ScriptableObjects/ShopItem")]
+public class ShopItem : ScriptableObject
 {
     public float itemValue;
     public Sprite itemIcon;
