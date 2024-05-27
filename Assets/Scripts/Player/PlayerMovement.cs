@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField, Range(100f, 200f)] private float moveSpeed = 200f;
     [SerializeField] private LayerMask interactLayerMask;
@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     private GameInput gameInput;
     private Rigidbody2D body;
     private Vector2 lastFacedDirection;
-    private GameObject interactable;
+    private Interactable interactable;
 
     private void Awake()
     {
@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
         
         if (raycastHit.collider != null)
         {
-            SetInteractable(raycastHit.collider.gameObject);
+            SetInteractable(raycastHit.collider.GetComponent<Interactable>());
         }
         else
         {
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void SetInteractable(GameObject interactableObj)
+    private void SetInteractable(Interactable interactableObj)
     {
         interactable = interactableObj;
     }
@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
     {
         if (interactable != null)
         {
-            //Add Interaction
+            interactable.Interact();
             Debug.Log(interactable.gameObject.name);
         }
     }
