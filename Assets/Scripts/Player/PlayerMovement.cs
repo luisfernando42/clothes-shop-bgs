@@ -57,6 +57,10 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            if(interactable != null)
+            {
+                interactable.StopInteraction();
+            }
             SetInteractable(null);
         }
     }

@@ -9,4 +9,9 @@ public class ShopKeeper : Interactable
     {
         ShopUI.OpenShop();
     }
+
+    public override void StopInteraction()
+    {
+        ShopUI.CloseShop();
+    }
 }
