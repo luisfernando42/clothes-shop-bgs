@@ -1,34 +1,67 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopUI : MonoBehaviour
 {
-    public List<ShopItem> shopItems;
     public GameObject itemPrefab;
-    public GameObject shopItemParent;
+    
+    public List<ShopItem> shopBuyItems;
+    public GameObject shopItemBuyParent;
 
-    private void InstantiateAllItems()
+    public List<ShopItem> shopSellItems;
+    public GameObject shopItemSellParent;
+
+    private ICustomer customer;
+
+
+    private void InstantiateAllBuyItems()
     {
-        for (int i = 0; i < shopItems.Count; i++)
+        for (int i = 0; i < shopBuyItems.Count; i++)
         {
-            GameObject shopItem = Instantiate(itemPrefab, shopItemParent.transform.position, Quaternion.identity, shopItemParent.transform);
-            shopItem.GetComponent<ItemInitializer>().Initialize(itemIcon: shopItems[i].itemIcon, itemValue: shopItems[i].itemValue, playerWearing: shopItems[i].playerWearing);    
+            GameObject shopItem = Instantiate(itemPrefab, shopItemBuyParent.transform.position, Quaternion.identity, shopItemBuyParent.transform);
+            ItemInitializer itemInitializer = shopItem.GetComponent<ItemInitializer>();
+            itemInitializer.Initialize(itemIcon: shopBuyItems[i].itemIcon, itemValue: shopBuyItems[i].itemValue, playerWearing: shopBuyItems[i].playerWearing, shopItem: shopBuyItems[i]);    
+            shopItem.GetComponent<Button>().onClick.AddListener(() => TryToBuyItem(itemInitializer.shopItem));
+        }
+    }
+
+    private void InstantiateAllSellItems()
+    {
+        for (int i = 0; i < shopSellItems.Count; i++)
+        {
+            GameObject shopItem = Instantiate(itemPrefab, shopItemSellParent.transform.position, Quaternion.identity, shopItemSellParent.transform);
+            ItemInitializer itemInitializer = shopItem.GetComponent<ItemInitializer>();
+            itemInitializer.Initialize(itemIcon: shopSellItems[i].itemIcon, itemValue: shopSellItems[i].itemValue, playerWearing: shopSellItems[i].playerWearing, shopItem: shopSellItems[i]);
+            shopItem.GetComponent<Button>().onClick.AddListener(() => TryToSellItem(itemInitializer.shopItem));
         }
     }
 
     private void Start()
     {
-        InstantiateAllItems();
+        InstantiateAllBuyItems();
+        InstantiateAllSellItems();
     }
 
-    public void OpenShop()
+    public void OpenShop(ICustomer customer)
     {
+        this.customer = customer;
         gameObject.SetActive(true);
     }
 
     public void CloseShop() 
-    { 
+    {
+        customer = null;
         gameObject.SetActive(false);
+    }
+
+    private void TryToBuyItem(ShopItem item)
+    {
+        customer.BuyItem(item);
+    }
+    private void TryToSellItem(ShopItem item) 
+    {
+        customer.SellItem(item);
     }
 }

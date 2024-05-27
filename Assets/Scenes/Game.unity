@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 268821425}
   - component: {fileID: 268821427}
   - component: {fileID: 268821428}
+  - component: {fileID: 268821429}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -349,6 +350,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d408a5c9bb438e41839e76255ba1040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &268821429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268821423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc092d54f0c6c07478f88343d4c09414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walletMoneyAmout: 40
 --- !u!1 &392717849
 GameObject:
   m_ObjectHideFlags: 0
@@ -3098,12 +3112,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c12d46a55b35054a996683f194c4b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopItems:
+  itemPrefab: {fileID: 2076419281280486356, guid: 9c674f8e49c069e49982c1ee17e57f31, type: 3}
+  shopBuyItems:
   - {fileID: 11400000, guid: 7226a9c05fbebe842b66e09b37c696de, type: 2}
   - {fileID: 11400000, guid: 29ebc2b379d48cf44a7b63f4be1e08bb, type: 2}
   - {fileID: 11400000, guid: 5cb54b703d4f05644b45ab2cba60386c, type: 2}
-  itemPrefab: {fileID: 2076419281280486356, guid: 9c674f8e49c069e49982c1ee17e57f31, type: 3}
-  shopItemParent: {fileID: 977378309}
+  shopItemBuyParent: {fileID: 977378309}
+  shopSellItems:
+  - {fileID: 11400000, guid: 7226a9c05fbebe842b66e09b37c696de, type: 2}
+  - {fileID: 11400000, guid: 29ebc2b379d48cf44a7b63f4be1e08bb, type: 2}
+  - {fileID: 11400000, guid: 5cb54b703d4f05644b45ab2cba60386c, type: 2}
+  shopItemSellParent: {fileID: 1288724168}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
