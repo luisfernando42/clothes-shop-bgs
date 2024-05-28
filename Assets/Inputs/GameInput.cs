@@ -15,6 +15,7 @@ public class GameInput : MonoBehaviour
         playerActions = new PlayerInputActions();
         playerActions.Player.Enable();
         playerActions.Player.Interact.performed += Interact_performed;
+        playerActions.Player.OpenInventory.performed += OpenInventory_performed;
     }
 
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)

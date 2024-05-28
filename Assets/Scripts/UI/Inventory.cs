@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    private PlayerInventory inventory;
+    public PlayerInventory inventory;
     private List<ShopItem> inventoryItems;
     public GameObject inventoryListParent;
     public GameObject inventoryItemPrefab;
     private void Start()
     {
+        inventoryItems = inventory.InventoryList();
         InitializeItems();
     }
 
@@ -22,15 +23,15 @@ public class Inventory : MonoBehaviour
             {
                 GameObject inventoryItem = Instantiate(inventoryItemPrefab, inventoryListParent.transform);
                 InventoryInitializer inventoryInitializer = inventoryItem.GetComponentInChildren<InventoryInitializer>();
-                inventoryInitializer.Initialize(icon: inventoryItems[i].itemIcon, playerWearing: inventoryItems[i].playerWearing);
-                inventoryInitializer.gameObject.GetComponent<Button>().onClick.AddListener(() => TryToWearClothes(inventoryItems[i]));
+                inventoryInitializer.Initialize(icon: inventoryItems[i].itemIcon, playerWearing: inventoryItems[i].playerWearing, shopItem: inventoryItems[i]);
+                inventoryInitializer.gameObject.GetComponentInChildren<Button>().onClick.AddListener(() => TryToWearClothes(inventoryInitializer.shopItem));
             }
         }
     }
 
     private void TryToWearClothes(ShopItem item)
     {
-
+        Debug.Log(item.name);
     }
 
 }

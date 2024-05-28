@@ -15,6 +15,8 @@ public class ShopUI : MonoBehaviour
 
     private ICustomer customer;
 
+    private ShopItem selectedItem; 
+
     private void InstantiateAllBuyItems()
     {
         for (int i = 0; i < shopBuyItems.Count; i++)
@@ -22,7 +24,7 @@ public class ShopUI : MonoBehaviour
             GameObject shopItem = Instantiate(itemPrefab, shopItemBuyParent.transform);
             ItemInitializer itemInitializer = shopItem.GetComponent<ItemInitializer>();
             itemInitializer.Initialize(itemIcon: shopBuyItems[i].itemIcon, itemValue: shopBuyItems[i].itemValue, playerWearing: shopBuyItems[i].playerWearing, shopItem: shopBuyItems[i]);    
-            shopItem.GetComponent<Button>().onClick.AddListener(() => TryToBuyItem(itemInitializer.shopItem));
+            shopItem.GetComponent<Button>().onClick.AddListener(() => SelectItem(itemObject: shopItem, shopItem: itemInitializer.shopItem));
         }
     }
 
@@ -33,7 +35,7 @@ public class ShopUI : MonoBehaviour
             GameObject shopItem = Instantiate(itemPrefab, shopItemSellParent.transform.position, Quaternion.identity, shopItemSellParent.transform);
             ItemInitializer itemInitializer = shopItem.GetComponent<ItemInitializer>();
             itemInitializer.Initialize(itemIcon: shopSellItems[i].itemIcon, itemValue: shopSellItems[i].itemValue, playerWearing: shopSellItems[i].playerWearing, shopItem: shopSellItems[i]);
-            shopItem.GetComponent<Button>().onClick.AddListener(() => TryToSellItem(itemInitializer.shopItem));
+            shopItem.GetComponent<Button>().onClick.AddListener(() => SelectItem(itemObject: shopItem, shopItem: itemInitializer.shopItem));
         }
     }
 
@@ -41,6 +43,14 @@ public class ShopUI : MonoBehaviour
     {
         InstantiateAllBuyItems();
         InstantiateAllSellItems();
+    }
+
+    private void SelectItem(ShopItem shopItem, GameObject itemObject)
+    {
+        
+        Button itemButton = itemObject.GetComponent<Button>();    
+        itemButton.Select();
+        selectedItem = shopItem;
     }
 
     public void OpenShop(ICustomer customer)
@@ -55,12 +65,18 @@ public class ShopUI : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void TryToBuyItem(ShopItem item)
+    public void TryToBuyItem()
     {
-        customer.BuyItem(item);
+        if (selectedItem != null) 
+        {
+            customer.BuyItem(selectedItem);
+        }
     }
-    private void TryToSellItem(ShopItem item) 
+    public void TryToSellItem()
     {
-        customer.SellItem(item);
+        if (selectedItem != null)
+        {
+            customer.SellItem(selectedItem);
+        }
     }
 }

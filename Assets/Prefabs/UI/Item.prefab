@@ -137,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemValueTxt: {fileID: 7963141852196294510}
   itemIcon: {fileID: 4097988998421029682}
+  shopItem: {fileID: 0}
   playerWearing: {fileID: 0}
 --- !u!1 &4621511613331894730
 GameObject:
