@@ -23,7 +23,7 @@ public class Inventory : MonoBehaviour
             {
                 GameObject inventoryItem = Instantiate(inventoryItemPrefab, inventoryListParent.transform);
                 InventoryInitializer inventoryInitializer = inventoryItem.GetComponentInChildren<InventoryInitializer>();
-                inventoryInitializer.Initialize(icon: inventoryItems[i].itemIcon, playerWearing: inventoryItems[i].playerWearing, shopItem: inventoryItems[i]);
+                inventoryInitializer.Initialize(icon: inventoryItems[i].itemIcon, clotheCategory: inventoryItems[i].clotheCategory ,clotheLabel: inventoryItems[i].clotheLabel, shopItem: inventoryItems[i]);
                 inventoryInitializer.gameObject.GetComponentInChildren<Button>().onClick.AddListener(() => TryToWearClothes(inventoryInitializer.shopItem));
             }
         }

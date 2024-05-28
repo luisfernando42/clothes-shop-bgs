@@ -10,18 +10,14 @@ public class ItemInitializer : MonoBehaviour
     public Image itemIcon;
     public ShopItem shopItem;
 
-    public Sprite playerWearing;
-    public void Initialize(float itemValue, Sprite itemIcon, Sprite playerWearing, ShopItem shopItem)
+    public string clotheLabel;
+    public string clotheCategory;
+    public void Initialize(float itemValue, Sprite itemIcon, string clotheLabel, string clotheCategory, ShopItem shopItem)
     {
         itemValueTxt.text = itemValue.ToString();
         this.itemIcon.sprite = itemIcon;
-        this.playerWearing = playerWearing;
+        this.clotheLabel = clotheLabel;
+        this.clotheCategory = clotheCategory;
         this.shopItem = shopItem;
     }
-
-    public Sprite UpdatePlayerVisual()
-    {
-        return playerWearing;
-    }
-
 }

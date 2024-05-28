@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class InventoryInitializer : MonoBehaviour
 {
     public Image itemIcon;
-    public Sprite playerWearing;
     public ShopItem shopItem;
-    public void Initialize(Sprite icon, Sprite playerWearing, ShopItem shopItem)
+    public string clotheCategory;
+    public string clotheLabel;
+    public void Initialize(Sprite icon, string clotheCategory,string clotheLabel, ShopItem shopItem)
     {
         this.itemIcon.sprite = icon;
-        this.playerWearing = playerWearing;
+        this.clotheCategory = clotheCategory;
+        this.clotheLabel = clotheLabel;
         this.shopItem = shopItem;
     }
 }

@@ -7,5 +7,6 @@ public class ShopItem : ScriptableObject
 {
     public float itemValue;
     public Sprite itemIcon;
-    public Sprite playerWearing;
+    public string clotheCategory;
+    public string clotheLabel;
 }
