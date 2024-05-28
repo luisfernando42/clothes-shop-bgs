@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Shoes
   m_EditorClassIdentifier: 
   itemValue: 10
-  itemIcon: {fileID: 7482667652216324306, guid: 88cc8769a5e599540b098220302a9d7c, type: 3}
+  itemIcon: {fileID: 21300000, guid: 79bc0c2671ef17f44a0c6b5f392c98fe, type: 3}
   playerWearing: {fileID: 7482667652216324306, guid: 88cc8769a5e599540b098220302a9d7c, type: 3}

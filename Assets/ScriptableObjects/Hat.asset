@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Hat
   m_EditorClassIdentifier: 
   itemValue: 50
-  itemIcon: {fileID: 7482667652216324306, guid: d0a87390a088d6345a1b516124398a22, type: 3}
+  itemIcon: {fileID: 21300000, guid: 79bc0c2671ef17f44a0c6b5f392c98fe, type: 3}
   playerWearing: {fileID: 7482667652216324306, guid: d0a87390a088d6345a1b516124398a22, type: 3}

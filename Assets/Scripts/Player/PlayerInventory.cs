@@ -9,11 +9,14 @@ public class PlayerInventory : MonoBehaviour, ICustomer
     private GameInput gameInput;
     public GameObject inventory;
     private bool isInventoryOpen = false;
-    private List<ShopItem> inventoryItems = new List<ShopItem>(); 
+    private List<ShopItem> inventoryItems = new List<ShopItem>();
+
+    public ShopUI shopUI;
 
     private void Awake()
     {
         gameInput = GetComponent<GameInput>();
+ 
     }
 
     private void Start()
@@ -28,6 +31,7 @@ public class PlayerInventory : MonoBehaviour, ICustomer
 
     public void OpenOrCloseInventory(bool isInventoryOpen)
     {
+        shopUI.CloseShop();
         this.isInventoryOpen = !isInventoryOpen;
         inventory.SetActive(this.isInventoryOpen);
     }
