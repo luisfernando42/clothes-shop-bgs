@@ -15,12 +15,11 @@ public class ShopUI : MonoBehaviour
 
     private ICustomer customer;
 
-
     private void InstantiateAllBuyItems()
     {
         for (int i = 0; i < shopBuyItems.Count; i++)
         {
-            GameObject shopItem = Instantiate(itemPrefab, shopItemBuyParent.transform.position, Quaternion.identity, shopItemBuyParent.transform);
+            GameObject shopItem = Instantiate(itemPrefab, shopItemBuyParent.transform);
             ItemInitializer itemInitializer = shopItem.GetComponent<ItemInitializer>();
             itemInitializer.Initialize(itemIcon: shopBuyItems[i].itemIcon, itemValue: shopBuyItems[i].itemValue, playerWearing: shopBuyItems[i].playerWearing, shopItem: shopBuyItems[i]);    
             shopItem.GetComponent<Button>().onClick.AddListener(() => TryToBuyItem(itemInitializer.shopItem));

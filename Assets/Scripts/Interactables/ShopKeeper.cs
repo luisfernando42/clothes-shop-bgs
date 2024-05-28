@@ -6,10 +6,7 @@ public class ShopKeeper : Interactable
 {
     public ShopUI ShopUI;
 
-    public override void Interact()
-    {
-       
-    }
+    public override void Interact(){}
 
     public override void InteractWithCustomer(ICustomer customer)
     {
