@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Red Dress
   m_EditorClassIdentifier: 
   itemValue: 30
-  itemIcon: {fileID: 1902553437421559152, guid: 17b56df863ae88f4ba5fb4764a13d59d, type: 3}
+  itemIcon: {fileID: -8368917286744712493, guid: 5111a45fbca743b42a58f12ee9ac9642, type: 3}
   clotheCategory: Dress
   clotheLabel: Red Dress

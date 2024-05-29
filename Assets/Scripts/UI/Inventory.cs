@@ -40,6 +40,6 @@ public class Inventory : MonoBehaviour
 
     private void TryToWearClothes(ShopItem item)
     {
-        wearable.WearDress(category: item.clotheCategory, label: item.clotheLabel);
+        wearable.WearClothes(category: item.clotheCategory, label: item.clotheLabel);
     }
 }

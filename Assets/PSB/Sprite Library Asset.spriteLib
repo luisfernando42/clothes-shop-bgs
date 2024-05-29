@@ -13,22 +13,70 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Library:
+  - m_Name: Glasses
+    m_Hash: 958358346
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Glasses
+      m_Hash: 958358346
+      m_Sprite: {fileID: 3920715841717538079, guid: 5111a45fbca743b42a58f12ee9ac9642, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3920715841717538079, guid: 5111a45fbca743b42a58f12ee9ac9642, type: 3}
+    - m_Name: WithoutGlass
+      m_Hash: 951500293
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
+    m_FromMain: 0
+    m_EntryOverrideCount: 2
+  - m_Name: Pants
+    m_Hash: 1035850478
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Pants
+      m_Hash: 1035850478
+      m_Sprite: {fileID: -8612894157294733667, guid: 5111a45fbca743b42a58f12ee9ac9642, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8612894157294733667, guid: 5111a45fbca743b42a58f12ee9ac9642, type: 3}
+    - m_Name: Dress
+      m_Hash: 694510331
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
+    m_FromMain: 0
+    m_EntryOverrideCount: 2
+  - m_Name: Shirt
+    m_Hash: 174375700
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Shirt
+      m_Hash: 174375700
+      m_Sprite: {fileID: 5570422152785329907, guid: 5111a45fbca743b42a58f12ee9ac9642, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5570422152785329907, guid: 5111a45fbca743b42a58f12ee9ac9642, type: 3}
+    - m_Name: Dress
+      m_Hash: 694510331
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
+    m_FromMain: 0
+    m_EntryOverrideCount: 2
   - m_Name: Dress
     m_Hash: 694510331
     m_CategoryList: []
     m_OverrideEntries:
-    - m_Name: Red Dress
-      m_Hash: 901000103
-      m_Sprite: {fileID: 1902553437421559152, guid: 17b56df863ae88f4ba5fb4764a13d59d, type: 3}
+    - m_Name: Dress
+      m_Hash: 694510331
+      m_Sprite: {fileID: -8368917286744712493, guid: 5111a45fbca743b42a58f12ee9ac9642, type: 3}
       m_FromMain: 0
-      m_SpriteOverride: {fileID: 1902553437421559152, guid: 17b56df863ae88f4ba5fb4764a13d59d, type: 3}
-    - m_Name: Blue Dress
-      m_Hash: 373793085
-      m_Sprite: {fileID: 2333849217725335315, guid: 17b56df863ae88f4ba5fb4764a13d59d, type: 3}
+      m_SpriteOverride: {fileID: -8368917286744712493, guid: 5111a45fbca743b42a58f12ee9ac9642, type: 3}
+    - m_Name: WithoutDress
+      m_Hash: 148458661
+      m_Sprite: {fileID: 0}
       m_FromMain: 0
-      m_SpriteOverride: {fileID: 2333849217725335315, guid: 17b56df863ae88f4ba5fb4764a13d59d, type: 3}
+      m_SpriteOverride: {fileID: 0}
     m_FromMain: 0
     m_EntryOverrideCount: 2
   m_PrimaryLibraryGUID: 
-  m_ModificationHash: 638525359934552553
+  m_ModificationHash: 638525503021983337
   m_Version: 1

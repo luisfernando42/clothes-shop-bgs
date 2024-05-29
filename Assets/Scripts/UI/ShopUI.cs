@@ -41,7 +41,6 @@ public class ShopUI : MonoBehaviour
 
     private void InstantiateAllSellItems()
     {
-        shopSellItems.Clear();
         shopSellItems = PlayerInventory.Instance.InventoryList();
         if (shopSellItems.Count > 0)
         {

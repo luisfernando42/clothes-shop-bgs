@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IWearable
 {
-    void WearDress(string category, string label);
+    void WearClothes(string category, string label);
 
 }

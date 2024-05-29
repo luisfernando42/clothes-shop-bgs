@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4740c1b79df5354e97e9dc09ea37d02, type: 3}
-  m_Name: Hat
+  m_Name: Glasses
   m_EditorClassIdentifier: 
-  itemValue: 50
-  itemIcon: {fileID: 21300000, guid: 79bc0c2671ef17f44a0c6b5f392c98fe, type: 3}
-  playerWearing: {fileID: 7482667652216324306, guid: d0a87390a088d6345a1b516124398a22, type: 3}
+  itemValue: 30
+  itemIcon: {fileID: 3920715841717538079, guid: 5111a45fbca743b42a58f12ee9ac9642, type: 3}
+  clotheCategory: Glasses
+  clotheLabel: Glasses

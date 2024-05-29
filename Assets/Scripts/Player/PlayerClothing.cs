@@ -8,6 +8,9 @@ public class PlayerClothing : MonoBehaviour, IWearable
     public static PlayerClothing Instance { get; private set; }
 
     public SpriteResolver dressSpriteResolver = null;
+    public SpriteResolver shirtSpriteResolver = null;
+    public SpriteResolver pantsSpriteResolver = null;
+    public SpriteResolver glassesSpriteResolver = null;
     
     private void Awake()
     {
@@ -18,19 +21,32 @@ public class PlayerClothing : MonoBehaviour, IWearable
         dressSpriteResolver = GetComponentInChildren<SpriteResolver>();
     }
 
-    public void WearDress(string category, string label)
+    public void WearClothes(string category, string label)
     {
-        dressSpriteResolver.SetCategoryAndLabel(category, label);
+        switch (label)
+        {
+            case ClothesCategory.DRESS_CATEGORY:
+                dressSpriteResolver.SetCategoryAndLabel(category, label);
+                break;
+            case ClothesCategory.SHIRT_CATEGORY:
+                dressSpriteResolver.SetCategoryAndLabel(ClothesCategory.DRESS_CATEGORY, "WithoutDress");
+                shirtSpriteResolver.SetCategoryAndLabel(category, label);
+                break;
+            case ClothesCategory.PANTS_CATEGORY:
+                dressSpriteResolver.SetCategoryAndLabel(ClothesCategory.DRESS_CATEGORY, "WithoutDress");
+                pantsSpriteResolver.SetCategoryAndLabel(category, label);
+                break;
+            case ClothesCategory.GLASSES_CATEGORY:
+                glassesSpriteResolver.SetCategoryAndLabel (category, label);
+                break;
+        }
     }
 }
 
-public enum ClothesCategory
+public static class ClothesCategory
 {
-    Dress, Glass, Shirt, Skirt
-}
-
-public static class ClothesLabel
-{
-    static string BLUE_DRESS_LABEL = "Blue Dress";
-    static string RED_DRESS_LABEL = "Red Dress";
+    public const string DRESS_CATEGORY = "Dress";
+    public const string GLASSES_CATEGORY = "Glasses";
+    public const string SHIRT_CATEGORY = "Shirt";
+    public const string PANTS_CATEGORY = "Pants";
 }
