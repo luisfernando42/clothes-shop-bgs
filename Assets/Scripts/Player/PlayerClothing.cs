@@ -7,7 +7,7 @@ public class PlayerClothing : MonoBehaviour, IWearable
 {
     public static PlayerClothing Instance { get; private set; }
 
-    public SpriteResolver dressSpriteResolver;
+    public SpriteResolver dressSpriteResolver = null;
     
     private void Awake()
     {
@@ -15,6 +15,7 @@ public class PlayerClothing : MonoBehaviour, IWearable
         {
             Instance = this;
         }
+        dressSpriteResolver = GetComponentInChildren<SpriteResolver>();
     }
 
     public void WearDress(string category, string label)

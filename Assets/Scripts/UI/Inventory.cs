@@ -9,9 +9,12 @@ public class Inventory : MonoBehaviour
     private List<ShopItem> inventoryItems;
     public GameObject inventoryListParent;
     public GameObject inventoryItemPrefab;
+
+    private IWearable wearable;
     private void Start()
     {
         inventoryItems = inventory.InventoryList();
+        wearable = inventory.gameObject.GetComponent<IWearable>();
         InitializeItems();
     }
 
@@ -31,7 +34,7 @@ public class Inventory : MonoBehaviour
 
     private void TryToWearClothes(ShopItem item)
     {
-        Debug.Log(item.name);
+        wearable.WearDress(category: item.clotheCategory, label: item.clotheLabel);
     }
 
 }

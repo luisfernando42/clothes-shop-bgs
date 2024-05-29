@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4740c1b79df5354e97e9dc09ea37d02, type: 3}
-  m_Name: Dress
+  m_Name: Blue Dress
   m_EditorClassIdentifier: 
   itemValue: 30
-  itemIcon: {fileID: 21300000, guid: 79bc0c2671ef17f44a0c6b5f392c98fe, type: 3}
-  playerWearing: {fileID: 21300000, guid: c15d68b1e30762c478992684a2e8f260, type: 3}
+  itemIcon: {fileID: 2333849217725335315, guid: 17b56df863ae88f4ba5fb4764a13d59d, type: 3}
+  clotheCategory: Dress
+  clotheLabel: Blue Dress
