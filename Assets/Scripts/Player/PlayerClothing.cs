@@ -18,7 +18,6 @@ public class PlayerClothing : MonoBehaviour, IWearable
         {
             Instance = this;
         }
-        dressSpriteResolver = GetComponentInChildren<SpriteResolver>();
     }
 
     public void WearClothes(string category, string label)
