@@ -11,6 +11,8 @@ public class Inventory : MonoBehaviour
     public GameObject inventoryItemPrefab;
 
     private IWearable wearable;
+
+    
     private void Start()
     {
         inventoryItems = inventory.InventoryList();
@@ -36,5 +38,4 @@ public class Inventory : MonoBehaviour
     {
         wearable.WearDress(category: item.clotheCategory, label: item.clotheLabel);
     }
-
 }

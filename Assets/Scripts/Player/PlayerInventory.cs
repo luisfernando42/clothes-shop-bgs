@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour, ICustomer
 {
-    public float walletMoneyAmout = 300;
+    public float walletMoneyAmout = 2000;
     private GameInput gameInput;
     public GameObject inventory;
     private bool isInventoryOpen = false;
@@ -13,10 +13,15 @@ public class PlayerInventory : MonoBehaviour, ICustomer
 
     public ShopUI shopUI;
 
+    public static PlayerInventory Instance { get; private set; }
+
     private void Awake()
     {
         gameInput = GetComponent<GameInput>();
- 
+        if (Instance == null)
+        {
+            Instance = this;
+        }
     }
 
     private void Start()
@@ -33,7 +38,6 @@ public class PlayerInventory : MonoBehaviour, ICustomer
     {
         shopUI.CloseShop();
         this.isInventoryOpen = !isInventoryOpen;
-        inventory.SetActive(this.isInventoryOpen);
     }
 
     public List<ShopItem> InventoryList()
@@ -43,7 +47,7 @@ public class PlayerInventory : MonoBehaviour, ICustomer
 
     public void BuyItem(ShopItem item)
     {
-        if (!inventoryItems.Contains(item))
+        if (!inventoryItems.Contains(item) && inventoryItems.Count <=2)
         {
             walletMoneyAmout -= item.itemValue;
             inventoryItems.Add(item);
