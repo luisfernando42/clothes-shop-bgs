@@ -7,13 +7,14 @@ public class PlayerInventory : MonoBehaviour, ICustomer
 {
     public float walletMoneyAmout = 2000;
     private GameInput gameInput;
-    public GameObject inventory;
+    public GameObject inventoryParent;
+    public GameObject inventoryPrefab;
+    public GameObject inventoryTemporary;
     private bool isInventoryOpen = false;
     private List<ShopItem> inventoryItems = new List<ShopItem>();
 
-    public ShopUI shopUI;
-
     public static PlayerInventory Instance { get; private set; }
+    public static ICustomer CustomerInstance { get; private set; }
 
     private void Awake()
     {
@@ -21,6 +22,10 @@ public class PlayerInventory : MonoBehaviour, ICustomer
         if (Instance == null)
         {
             Instance = this;
+        }
+        if (CustomerInstance == null) 
+        { 
+            CustomerInstance = this;
         }
     }
 
@@ -36,8 +41,17 @@ public class PlayerInventory : MonoBehaviour, ICustomer
 
     public void OpenOrCloseInventory(bool isInventoryOpen)
     {
-        shopUI.CloseShop();
         this.isInventoryOpen = !isInventoryOpen;
+        if (isInventoryOpen) 
+        {
+            inventoryParent.SetActive(false);
+            if(inventoryTemporary != null) Destroy(inventoryTemporary);
+        }
+        else
+        {
+            inventoryParent.SetActive(true);
+            inventoryTemporary = Instantiate(inventoryPrefab, inventoryParent.transform);
+        }
     }
 
     public List<ShopItem> InventoryList()

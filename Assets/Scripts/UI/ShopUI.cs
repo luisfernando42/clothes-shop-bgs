@@ -13,17 +13,16 @@ public class ShopUI : MonoBehaviour
     public List<ShopItem> shopSellItems;
     public GameObject shopItemSellParent;
 
-    public PlayerInventory playerInventory;
-
-    private ICustomer customer;
-
     private ShopItem selectedItem;
     private GameObject selectedGO;
+
+    private GameObject instantiatedPrefab;
 
 
     private void Start()
     {
         InstantiateAllBuyItems();
+        InstantiateAllSellItems();
     }
 
     private void InstantiateAllBuyItems()
@@ -43,7 +42,7 @@ public class ShopUI : MonoBehaviour
     private void InstantiateAllSellItems()
     {
         shopSellItems.Clear();
-        shopSellItems = playerInventory.InventoryList();
+        shopSellItems = PlayerInventory.Instance.InventoryList();
         if (shopSellItems.Count > 0)
         {
             for (int i = 0; i < shopSellItems.Count; i++)
@@ -66,17 +65,16 @@ public class ShopUI : MonoBehaviour
         selectedItem = shopItem;
     }
 
-    public void OpenShop(ICustomer customer)
+    public void OpenShop(GameObject instantiatedPrefab)
     {
-        this.customer = customer;
+        this.instantiatedPrefab = instantiatedPrefab;
         gameObject.SetActive(true);
         InstantiateAllSellItems();
     }
 
     public void CloseShop() 
     {
-        customer = null;
-        gameObject.SetActive(false);
+        Destroy(instantiatedPrefab);
     }
 
     public void TryToBuyItem()
@@ -84,7 +82,7 @@ public class ShopUI : MonoBehaviour
         if (selectedItem != null) 
         {
             shopSellItems.Add(selectedItem);
-            customer.BuyItem(selectedItem);
+            PlayerInventory.CustomerInstance.BuyItem(selectedItem);
         }
     }
     public void TryToSellItem()
@@ -92,7 +90,7 @@ public class ShopUI : MonoBehaviour
         if (selectedItem != null)
         {
             shopSellItems.Remove(selectedItem);
-            customer.SellItem(selectedItem);
+            PlayerInventory.CustomerInstance.SellItem(selectedItem);
             Destroy(selectedGO);
         }
     }

@@ -5,16 +5,20 @@ using UnityEngine;
 public class ShopKeeper : Interactable
 {
     public ShopUI ShopUI;
+    public GameObject shopParent;
+    public GameObject shopTemporary;
 
-    public override void Interact(){}
+   
 
-    public override void InteractWithCustomer(ICustomer customer)
+    public override void Interact()
     {
-        ShopUI.OpenShop(customer);
+        shopTemporary = Instantiate(ShopUI.gameObject, shopParent.transform);
+        ShopUI.OpenShop(shopTemporary);
     }
 
     public override void StopInteraction()
     {
         ShopUI.CloseShop();
+        Destroy(shopTemporary);
     }
 }

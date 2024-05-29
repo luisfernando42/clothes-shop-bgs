@@ -74,8 +74,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (interactable != null)
         {
-            interactable.InteractWithCustomer(gameObject.GetComponent<ICustomer>());
-            Debug.Log(interactable.gameObject.name);
+            interactable.Interact();
         }
     }
 }

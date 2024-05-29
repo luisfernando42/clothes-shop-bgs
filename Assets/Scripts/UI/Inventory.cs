@@ -12,7 +12,11 @@ public class Inventory : MonoBehaviour
 
     private IWearable wearable;
 
-    
+    private void Awake()
+    {
+        inventory = PlayerInventory.Instance;
+    }
+
     private void Start()
     {
         inventoryItems = inventory.InventoryList();
